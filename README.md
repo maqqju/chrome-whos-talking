@@ -12,5 +12,12 @@ So far this extension only tracks Zoom meetings (opened through Google Chrome).
 * When finished, click the extension icon again to download the logs
 * Logs will be downloaded as a CSV file
 
+### Known issues
+This project is in its infancy, so there will surely be a lot of problems. The following are some known challenges:
+* The extension icon needs replacement
+* When multiple people talk at the same time some information might be lost
+
 ## Do you want to Contribute?
 As always, be my guest.
+
+
