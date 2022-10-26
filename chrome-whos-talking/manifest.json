@@ -1,0 +1,24 @@
+{
+  "name": "Chrome Who's Talking",
+  "description": "A Chrome Extension to track who's talking during VOIP meetings",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background" : {
+    "service_worker": "background.js"
+  },
+  "content_scripts" : [
+    {
+      "matches": ["https://*.zoom.us/*"],
+      "js" : ["meeting.js","chromeWhosTalking.js","contentScript.js"]
+    },
+    {
+      "matches": ["https://*.teams.microsoft.com/*"],
+      "js": ["meeting.js","chromeWhosTalking.js","contentScriptMsTeams.js"]
+    }
+  ],
+  "permissions" : ["activeTab","scripting"],
+  "action": {
+    // "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  }
+}
