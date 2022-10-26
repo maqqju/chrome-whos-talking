@@ -39,13 +39,10 @@ function zoom() {
 
 	observer.observe(document.getElementById("participants-ul"),config);
 	state.current = "recording";
-	meeting.setEnd(((_m, _s, _o) => {
-		meeting.getTalkLogTable();
-		exportCsv(meeting.getTalkLog());		
-		state.current = "";
-		observer.disconnect();
-	}).bind(null,meeting,state,observer));
+	// 
 	console.info(`[track-whos-talking] Tracking ${__ZOOM} call`);
+
+	return observer;
 }
 
 console.info(`[track-whos-talking] ${__ZOOM} Script Loaded`);
