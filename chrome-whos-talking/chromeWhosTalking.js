@@ -21,21 +21,32 @@ function trackWhosTalking(_platform) {
 		return;
 	}
 
+	var observer;
 	if (state.current === "recording") {
 		meeting.endMeeting();
 		return;
 	} else {
 		switch (_platform) {
 			case __ZOOM : 
-				zoom()
+				observer = zoom();
 				break;
 			case __MSTEAMS : 
-				msTeams()
+				observer = msTeams();
 				break;
 			default : 
 				console.log(`[track-whos-talking] Could not identify platform ${_platform}`);
 		}
+
+		if (!!observer) {
+			meeting.setEnd(((_m, _s, _o) => {
+				meeting.getTalkLogTable();
+				exportCsv(meeting.getTalkLog());		
+				state.current = "";
+				observer.disconnect();
+			}).bind(null,meeting,state,observer));
+		}
 	}
+
 
 
 }
