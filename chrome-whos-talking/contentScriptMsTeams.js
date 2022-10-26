@@ -23,13 +23,10 @@ function msTeams() {
 		observer.observe(node, {attributes : true});
 	});
 	state.current = "recording";
-	meeting.setEnd(((_m, _s, _o) => {
-		meeting.getTalkLogTable();
-		exportCsv(meeting.getTalkLog());		
-		state.current = "";
-		observer.disconnect();
-	}).bind(null,meeting,state,observer));
+	
 	console.info(`[track-whos-talking] Tracking ${__MSTEAMS} call`);
+
+	return observer;
 }
 
 
