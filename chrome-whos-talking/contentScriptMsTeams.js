@@ -33,3 +33,4 @@ function msTeams() {
 }
 
 
+console.info(`[track-whos-talking] ${__MSTEAMS} Script Loaded`);
