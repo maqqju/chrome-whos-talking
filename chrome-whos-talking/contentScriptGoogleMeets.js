@@ -16,7 +16,7 @@ function googleMeets() {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === "class") {
         var _name = extractName(mutation.target);
-        meeting.isTalking(name);
+        meeting.isTalking(_name);
       }
     })
   );
