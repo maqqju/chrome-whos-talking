@@ -1,7 +1,7 @@
 const __platform = __GOOGLEMEETS;
 
 function googleMeets() {
-  const lastSpeaker = {name : "", time : null};
+  const lastSpeaker = {name : "", time : 0};
   function extractName(node) {
       return Array.prototype.slice.call(node.parentNode
                                             .parentNode
@@ -15,9 +15,12 @@ function googleMeets() {
   var observer = new MutationObserver((mutations) => 
     mutations.forEach((mutation) => {
       if (mutation.attributeName === "class") {
+      	var _time = Date.now();
         var _name = extractName(mutation.target);
-	if (lastSpeaker.name !== _name && lastSpeaker.time >= (Date.now()-2000)) {
+	if (lastSpeaker.name !== _name && lastSpeaker.time >= (_time-2000)) {
 	   meeting.isTalking(_name);
+	   lastSpeaker.name = _name;
+	   lastSpeaker.time = _time;
 	}
       }
     })
