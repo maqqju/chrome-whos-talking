@@ -2,6 +2,7 @@ const state = {current : ""};
 const meeting = new Meeting();
 const __MSTEAMS = "MSTEAMS";
 const __ZOOM = "ZOOM";
+const __GOOGLEMEETS = "GOOGLEMEETS";
 
 
 function exportCsv(meetingTalkLog) {
@@ -32,6 +33,9 @@ function trackWhosTalking(_platform) {
 				break;
 			case __MSTEAMS : 
 				observer = msTeams();
+				break;
+			case __GOOGLEMEETS : 
+				observer = googleMeets();
 				break;
 			default : 
 				console.log(`[track-whos-talking] Could not identify platform ${_platform}`);
