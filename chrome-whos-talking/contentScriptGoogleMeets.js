@@ -23,7 +23,7 @@ function googleMeets() {
 	
 	var participants_list = document.querySelector("div[avatar-tooltip-id]");
 
-	if (!!participants_list) {
+	if (!participants_list) {
 		Array.prototype.slice.call(document.getElementsByClassName("google-material-icons")).filter((i) => i.innerText === "people_outline")[0].parentElement.click();
 	}
 
