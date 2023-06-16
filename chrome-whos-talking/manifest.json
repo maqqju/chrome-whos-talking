@@ -14,6 +14,10 @@
     {
       "matches": ["https://*.teams.microsoft.com/*"],
       "js": ["meeting.js","chromeWhosTalking.js","contentScriptMsTeams.js"]
+    },
+    {
+      "matches":["https://*.meet.google.com/*"],
+      "js": ["meeting.js","chromeWhosTalking.js","contentScriptGoogleMeets.js"]
     }
   ],
   "permissions" : ["activeTab","scripting"],
